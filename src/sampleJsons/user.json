@@ -1,0 +1,18 @@
+{
+    "userId":"aaf5505",
+    "firstName":"Sarthak",
+    "lastName":"Rawat",
+    "email":"sarthak@gmail.com",
+    "profiles":[
+        {
+            "profileName":"healthy",
+            "restrictions" : "Vegetarian",
+            "importance":"protein under 1000 calories"
+        },
+        {
+            "profileName":"yummy",
+            "restrictions" : "Nothing",
+            "importance":"food should be tasty"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "itemId": "itm1234",
+    "name":"Potato - Great Value",
+    "description":"Potato 1Kg bulk",
+    "tags" : ["potato"],
+    "rating":4,
+    "price" : 3.99,
+    "image" : "http://potato.jpg"
+}
