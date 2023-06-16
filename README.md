@@ -58,5 +58,5 @@ Currently it connects to a fine tuned chatGPT model. (will only work if your api
 ```
 run the laodData.py to laod data to you firestore DB
 
-make sure you ahve replace the firebase-private.json key first
+make sure you have replace the firebase-private.json key first
 ```
