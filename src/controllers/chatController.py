@@ -41,7 +41,7 @@ def make_dish():
 
 
 @gpt_routes.route('/bulkShop', methods=['POST'])
-def make_dish():
+def bull_shop():
     try:
         inputs = request.json['inputs']
         prompt = inputs[0]
