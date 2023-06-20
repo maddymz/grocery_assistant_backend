@@ -16,11 +16,10 @@ def make_dish():
         dishName = inputs[0]
         prompt_dish= "make-dish->"+dishName+" ->"
         # Make Magic Happen
-        # openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_key = "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"
+        openai.api_key = "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"
         print(prompt_dish)
         response = openai.Completion.create(
-            model="davinci:ft-personal:groceryasst-v9-2023-06-14-00-11-13",
+            model="davinci:ft-personal:groceryasst-v12-2023-06-20-16-36-55",
             prompt=prompt_dish,
             temperature=0.2,
             max_tokens=1019,
@@ -44,26 +43,14 @@ def make_dish():
 def bull_shop():
     try:
         inputs = request.json['inputs']
-        prompt = inputs[0]
-        prompt_response = ''', Give me response back ONLY in the below JSON format, fill up everything that is enclosed by <..> (angle brackets):
-        {
-            "dishName": "<NAME OF THE DISH>",
-            "howTo": "<HOW TO MAKE THE DISH IN HTML/TEXT FORMAT YOU CAN SKIP NEW LINE CHARACTER>",
-            "ingredients": [
-                "<INGREDITENT1 NAME ONLY>",
-                "<INGREDITENT2 NAME ONLY>",
-                "<INGREDITENT3 NAME ONLY>".... and so on
-            ],
-
-            "requiredQuantity": "<INGREDIENT ALONG WITH THEIR QUANTITY IN HTML TABLE AS TEXT YOU CAN SKIP NEW LINE CHARACTER>"
-        }'''
+        dish_name_qty = inputs[0]
+        prompt_bulk_shop= "bulk-shop->"+dish_name_qty+" ->"
         # Make Magic Happen
-        # openai.api_key = os.getenv("OPENAI_API_KEY")
-        openai.api_key = "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"
-        print(prompt)
+        openai.api_key = "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"
+        print("bulk prompt" , prompt_bulk_shop)
         response = openai.Completion.create(
-            model="gpt-3.5-turbo",
-            prompt=prompt + ". " + prompt_response,
+            model="davinci:ft-personal:groceryasst-v12-2023-06-20-16-36-55",
+            prompt=prompt_bulk_shop,
             temperature=0.2,
             max_tokens=1019,
             top_p=1,
@@ -73,7 +60,7 @@ def bull_shop():
         )
 
         gpt_final_response = json.loads(response['choices'][0]['text'])
-        print("Response from gpt ->",gpt_final_response)
+        print("Response from gpt for bulk shop ->",gpt_final_response)
         ingredients = gpt_final_response['ingredients']
         ingredients_mapping = {ingredient: get_item_id_by_search(ingredient) for ingredient in ingredients}
         gpt_final_response['ingredientsMapping'] = ingredients_mapping
